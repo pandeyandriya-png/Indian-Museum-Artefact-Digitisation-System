@@ -47,6 +47,17 @@ public void show(Stage stage, Artefact artefact) {
 
     Button saveBtn =
             new Button("Save Changes");
+            Button backBtn =
+        new Button("Back");
+
+backBtn.setOnAction(e -> {
+
+    ViewArtefactsPage page =
+            new ViewArtefactsPage();
+
+    page.show(stage);
+
+});
 
     saveBtn.setOnAction(e -> {
 
@@ -91,6 +102,10 @@ public void show(Stage stage, Artefact artefact) {
         }
 
         alert.showAndWait();
+        ViewArtefactsPage page =
+        new ViewArtefactsPage();
+
+page.show(stage);
     });
 
     GridPane root =
@@ -120,7 +135,7 @@ public void show(Stage stage, Artefact artefact) {
     root.add(descriptionArea,1,4);
 
     root.add(saveBtn,1,5);
-
+    root.add(backBtn,1,6);
     Scene scene =
             new Scene(root,700,500);
 

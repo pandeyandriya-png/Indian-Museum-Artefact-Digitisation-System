@@ -28,14 +28,20 @@ public void show(Stage stage) {
 
     });
 
-    Button updateBtn =
-            new Button("Update Artefact");
-
-    Button deleteBtn =
-            new Button("Delete Artefact");
-
     Button viewBtn =
             new Button("View Artefacts");
+            Button logoutBtn =
+        new Button("Logout");
+        logoutBtn.setOnAction(e -> {
+
+    LandingPage page =
+            new LandingPage();
+
+    page.show(stage);
+
+});
+
+logoutBtn.setPrefWidth(250);
             viewBtn.setOnAction(e -> {
 
     ViewArtefactsPage page =
@@ -46,8 +52,6 @@ public void show(Stage stage) {
 });
 
     addBtn.setPrefWidth(250);
-    updateBtn.setPrefWidth(250);
-    deleteBtn.setPrefWidth(250);
     viewBtn.setPrefWidth(250);
 
     VBox root =
@@ -62,9 +66,8 @@ public void show(Stage stage) {
     root.getChildren().addAll(
             title,
             addBtn,
-            updateBtn,
-            deleteBtn,
-            viewBtn
+            viewBtn,
+            logoutBtn
     );
 
     Scene scene =

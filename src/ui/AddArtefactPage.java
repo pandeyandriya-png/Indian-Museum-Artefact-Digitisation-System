@@ -67,6 +67,17 @@ public void show(Stage stage) {
 
     Button saveBtn =
             new Button("Save Artefact");
+            Button backBtn =
+        new Button("Back");
+
+backBtn.setOnAction(e -> {
+
+    AdminPanel panel =
+            new AdminPanel();
+
+    panel.show(stage);
+
+});
     saveBtn.setOnAction(e -> {
 
     boolean success =
@@ -114,6 +125,10 @@ public void show(Stage stage) {
     }
 
     alert.showAndWait();
+    AdminPanel panel =
+        new AdminPanel();
+
+panel.show(stage);
 });
 
     GridPane root =
@@ -149,6 +164,7 @@ public void show(Stage stage) {
     root.add(descriptionArea,1,6);
 
     root.add(saveBtn,1,7);
+    root.add(backBtn,1,8);
 
     Scene scene =
             new Scene(root,800,600);
