@@ -115,29 +115,21 @@ public void show(Stage stage) {
             SearchDAO.getAllArtefacts()
     );
 
-    searchBtn.setOnAction(e -> {
+searchBtn.setOnAction(e -> {
 
-        System.out.println(
-                "Dynasty = "
-                + dynastyBox.getValue()
-        );
+    ObservableList<Artefact> results =
+            SearchDAO.searchArtefacts(
 
-        System.out.println(
-                "Region = "
-                + regionBox.getValue()
-        );
+                    dynastyBox.getValue(),
+                    regionBox.getValue(),
+                    typeBox.getValue(),
+                    materialBox.getValue()
 
-        System.out.println(
-                "Type = "
-                + typeBox.getValue()
-        );
+            );
 
-        System.out.println(
-                "Material = "
-                + materialBox.getValue()
-        );
+    table.setItems(results);
 
-    });
+});
 
     GridPane filters =
             new GridPane();

@@ -173,6 +173,92 @@ public static ObservableList<String> getMaterials() {
 
     return list;
 }
+public static ObservableList<Artefact> searchArtefacts(
+        String dynasty,
+        String region,
+        String type,
+        String material) {
+
+    ObservableList<Artefact> artefacts =
+            FXCollections.observableArrayList();
+
+    StringBuilder sql = new StringBuilder(
+
+            "SELECT a.artefact_id, a.name, a.type, a.material, " +
+            "d.name AS Dynasty, r.name AS Region " +
+            "FROM Artefact a " +
+            "JOIN Dynasty d ON a.dynasty_id = d.dynasty_id " +
+            "JOIN Region r ON a.region_id = r.region_id " +
+            "WHERE 1=1"
+
+    );
+
+    if (!dynasty.equals("All")) {
+        sql.append(" AND d.name = ?");
+    }
+
+    if (!region.equals("All")) {
+        sql.append(" AND r.name = ?");
+    }
+
+    if (!type.equals("All")) {
+        sql.append(" AND a.type = ?");
+    }
+
+    if (!material.equals("All")) {
+        sql.append(" AND a.material = ?");
+    }
+
+    try (
+            Connection conn = DBConnection.getConnection();
+            PreparedStatement pstmt =
+                    conn.prepareStatement(sql.toString())
+    ) {
+
+        int index = 1;
+
+        if (!dynasty.equals("All")) {
+            pstmt.setString(index++, dynasty);
+        }
+
+        if (!region.equals("All")) {
+            pstmt.setString(index++, region);
+        }
+
+        if (!type.equals("All")) {
+            pstmt.setString(index++, type);
+        }
+
+        if (!material.equals("All")) {
+            pstmt.setString(index++, material);
+        }
+
+        ResultSet rs = pstmt.executeQuery();
+
+        while (rs.next()) {
+
+            artefacts.add(
+
+                    new Artefact(
+                            rs.getInt("artefact_id"),
+                            rs.getString("name"),
+                            rs.getString("type"),
+                            rs.getString("material"),
+                            rs.getString("Dynasty"),
+                            rs.getString("Region")
+                    )
+
+            );
+        }
+
+    } catch (SQLException e) {
+
+        e.printStackTrace();
+
+    }
+
+    return artefacts;
+}
 
 
 }
