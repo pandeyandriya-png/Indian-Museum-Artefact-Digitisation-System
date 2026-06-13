@@ -15,10 +15,14 @@ public void show(Stage stage) {
     Label title =
             new Label("Administrator Panel");
 
-    title.setStyle(
-            "-fx-font-size:24px;" +
-            "-fx-font-weight:bold;"
-    );
+title.setStyle(
+    "-fx-font-size:30px;" +
+    "-fx-font-weight:bold;" +
+    "-fx-text-fill:white;"
+);
+stage.setTitle(
+    "Indian Museum Artefact Digitisation System"
+);
     Button addBtn =
         new Button("Add Artefact");
    addBtn.setOnAction(e -> {
@@ -56,6 +60,11 @@ logoutBtn.setPrefWidth(250);
 
     VBox root =
             new VBox(20);
+         root.setStyle(
+    "-fx-background-color: linear-gradient(to bottom, #f5f7fa, #dfe9f3);"+"-fx-background-image: url('file:resources/images/museum_bg.png');" +
+    "-fx-background-size: cover;" +
+    "-fx-background-position: center;"
+);
 
     root.setAlignment(Pos.CENTER);
 
@@ -75,6 +84,23 @@ logoutBtn.setPrefWidth(250);
 
     stage.setScene(scene);
     stage.show();
+    styleButton(addBtn);
+styleButton(viewBtn);
+styleButton(logoutBtn);
+}
+private void styleButton(Button btn) {
+
+    btn.setStyle(
+
+        "-fx-background-color: #2E86DE;" +
+        "-fx-text-fill: white;" +
+        "-fx-font-size: 14px;" +
+        "-fx-font-weight: bold;" +
+        "-fx-background-radius: 10px;"
+
+    );
+
+    btn.setPrefHeight(40);
 }
 
 

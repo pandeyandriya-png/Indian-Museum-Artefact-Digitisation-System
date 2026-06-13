@@ -24,10 +24,16 @@ public void show(Stage stage) {
     Label title =
             new Label("Indian Museum Artefact Dashboard");
 
-    title.setStyle(
-            "-fx-font-size:24px;" +
-            "-fx-font-weight:bold;"
-    );
+   title.setStyle(
+
+    "-fx-font-size:30px;" +
+    "-fx-font-weight:bold;" +
+    "-fx-text-fill:#1B2631;"
+
+);
+stage.setTitle(
+    "Indian Museum Artefact Digitisation System"
+);
 
     ComboBox<String> dynastyBox =
             new ComboBox<>();
@@ -67,6 +73,9 @@ public void show(Stage stage) {
 
     TableView<Artefact> table =
             new TableView<>();
+            table.setColumnResizePolicy(
+        TableView.CONSTRAINED_RESIZE_POLICY
+);
 
     TableColumn<Artefact,Integer> idCol =
             new TableColumn<>("ID");
@@ -183,6 +192,9 @@ searchBtn.setOnAction(e -> {
 
     BorderPane root =
             new BorderPane();
+    root.setStyle(
+    "-fx-background-color: linear-gradient(to bottom, #f5f7fa, #dfe9f3);"
+);
 
     root.setPadding(
             new Insets(20)

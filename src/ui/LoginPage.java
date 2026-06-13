@@ -14,10 +14,16 @@ public class LoginPage {
 
         Label title = new Label("Administrator Login");
 
-        title.setStyle(
-                "-fx-font-size:24px;" +
-                "-fx-font-weight:bold;"
-        );
+       title.setStyle(
+
+    "-fx-font-size:30px;" +
+    "-fx-font-weight:bold;" +
+    "-fx-text-fill:#1B2631;"
+
+);
+stage.setTitle(
+    "Indian Museum Artefact Digitisation System"
+);
 
         TextField usernameField = new TextField();
         usernameField.setPromptText("Username");
@@ -26,9 +32,26 @@ public class LoginPage {
         passwordField.setPromptText("Password");
 
         Button loginBtn = new Button("Login");
+        styleButton(loginBtn);
 
        Label messageLabel = new Label();
        messageLabel.setStyle("-fx-text-fill:red;");
+       VBox loginCard = new VBox(15);
+
+loginCard.setAlignment(Pos.CENTER);
+
+loginCard.setPadding(
+        new Insets(30)
+);
+
+loginCard.setMaxWidth(400);
+
+loginCard.setStyle(
+        "-fx-background-color: rgba(255,255,255,0.90);" +
+        "-fx-background-radius: 15;"
+);
+usernameField.setMaxWidth(250);
+passwordField.setMaxWidth(250);
 
         loginBtn.setOnAction(e -> {
             System.out.println("BUTTON CLICKED");
@@ -65,20 +88,42 @@ public class LoginPage {
         });
 
         VBox root = new VBox(15);
+           root.setStyle(
+    "-fx-background-color: linear-gradient(to bottom, #f5f7fa, #dfe9f3);"+"-fx-background-image: url('file:resources/images/museum_bg.png');" +
+    "-fx-background-size: cover;" +
+    "-fx-background-position: center;"
+);
 
         root.setAlignment(Pos.CENTER);
         root.setPadding(new Insets(30));
+        loginCard.getChildren().addAll(
+        title,
+        usernameField,
+        passwordField,
+        loginBtn,
+        messageLabel
+);
 
-        root.getChildren().addAll(
-                title,
-                usernameField,
-                passwordField,
-                loginBtn,
-                messageLabel
-        );
+root.getChildren().add(
+        loginCard
+);
 
         Scene scene = new Scene(root,900,600);
 
         stage.setScene(scene);
     }
+    private void styleButton(Button btn) {
+
+    btn.setStyle(
+
+            "-fx-background-color: #2E86DE;" +
+            "-fx-text-fill: white;" +
+            "-fx-font-size: 14px;" +
+            "-fx-font-weight: bold;" +
+            "-fx-background-radius: 10px;"
+
+    );
+
+    btn.setPrefHeight(40);
+}
 }

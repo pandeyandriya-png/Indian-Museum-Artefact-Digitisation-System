@@ -21,9 +21,15 @@ public void show(Stage stage, Artefact artefact) {
             new Label("Update Artefact");
 
     title.setStyle(
-            "-fx-font-size:24px;" +
-            "-fx-font-weight:bold;"
-    );
+
+    "-fx-font-size:30px;" +
+    "-fx-font-weight:bold;" +
+    "-fx-text-fill:#1B2631;"
+
+);
+stage.setTitle(
+    "Indian Museum Artefact Digitisation System"
+);
 
     TextField nameField =
             new TextField(
@@ -49,6 +55,8 @@ public void show(Stage stage, Artefact artefact) {
             new Button("Save Changes");
             Button backBtn =
         new Button("Back");
+        styleButton(saveBtn);
+styleButton(backBtn);
 
 backBtn.setOnAction(e -> {
 
@@ -110,6 +118,9 @@ page.show(stage);
 
     GridPane root =
             new GridPane();
+            root.setStyle(
+    "-fx-background-color: linear-gradient(to bottom, #f5f7fa, #dfe9f3);"
+);
 
     root.setAlignment(Pos.CENTER);
 
@@ -141,6 +152,20 @@ page.show(stage);
 
     stage.setScene(scene);
     stage.show();
+}
+private void styleButton(Button btn) {
+
+    btn.setStyle(
+
+            "-fx-background-color: #2E86DE;" +
+            "-fx-text-fill: white;" +
+            "-fx-font-size: 14px;" +
+            "-fx-font-weight: bold;" +
+            "-fx-background-radius: 10px;"
+
+    );
+
+    btn.setPrefHeight(40);
 }
 }
 

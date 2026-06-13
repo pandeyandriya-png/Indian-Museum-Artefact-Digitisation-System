@@ -24,13 +24,19 @@ public void show(Stage stage) {
     Label title =
             new Label("View Artefacts");
 
-    title.setStyle(
-            "-fx-font-size:24px;" +
-            "-fx-font-weight:bold;"
-    );
+   title.setStyle(
+
+    "-fx-font-size:30px;" +
+    "-fx-font-weight:bold;" +
+    "-fx-text-fill:#1B2631;"
+
+);
 
     TableView<Artefact> table =
             new TableView<>();
+            table.setColumnResizePolicy(
+     TableView.CONSTRAINED_RESIZE_POLICY
+);
 
     TableColumn<Artefact,Integer> idCol =
             new TableColumn<>("ID");
@@ -90,6 +96,8 @@ public void show(Stage stage) {
 
     Button updateBtn =
             new Button("Update Selected");
+            styleButton(updateBtn);
+
        updateBtn.setOnAction(e -> {
 
     Artefact selected =
@@ -121,6 +129,8 @@ public void show(Stage stage) {
 
     Button deleteBtn =
             new Button("Delete Selected");
+            styleButton(deleteBtn);
+
     deleteBtn.setOnAction(e -> {
 
     Artefact selected =
@@ -183,6 +193,7 @@ public void show(Stage stage) {
 
     Button backBtn =
             new Button("Back");
+            styleButton(backBtn);
 
     backBtn.setOnAction(e -> {
 
@@ -204,6 +215,9 @@ public void show(Stage stage) {
 
     BorderPane root =
             new BorderPane();
+            root.setStyle(
+    "-fx-background-color: linear-gradient(to bottom, #f5f7fa, #dfe9f3);"
+);
 
     root.setPadding(
             new Insets(20)
@@ -221,7 +235,20 @@ public void show(Stage stage) {
     stage.setScene(scene);
     stage.show();
 }
+private void styleButton(Button btn) {
 
+    btn.setStyle(
+
+            "-fx-background-color: #2E86DE;" +
+            "-fx-text-fill: white;" +
+            "-fx-font-size: 14px;" +
+            "-fx-font-weight: bold;" +
+            "-fx-background-radius: 10px;"
+
+    );
+
+    btn.setPrefHeight(40);
+}
 
 }
 
