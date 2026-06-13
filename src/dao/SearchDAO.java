@@ -43,7 +43,8 @@ public static ObservableList<Artefact> getAllArtefacts() {
                             rs.getString("type"),
                             rs.getString("material"),
                             rs.getString("Dynasty"),
-                            rs.getString("Region")
+                            rs.getString("Region"),
+                            ""
                     )
 
             );
@@ -245,7 +246,8 @@ public static ObservableList<Artefact> searchArtefacts(
                             rs.getString("type"),
                             rs.getString("material"),
                             rs.getString("Dynasty"),
-                            rs.getString("Region")
+                            rs.getString("Region"),
+                            ""
                     )
 
             );

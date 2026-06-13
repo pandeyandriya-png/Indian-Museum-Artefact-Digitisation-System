@@ -49,8 +49,12 @@ public class LoginPage {
         messageLabel.setStyle("-fx-text-fill:green;");
         messageLabel.setText("Login Successful");
 
-         DashboardPage dashboard = new DashboardPage();
-        dashboard.show(stage);
+        //  DashboardPage dashboard = new DashboardPage();
+        // dashboard.show(stage);
+        AdminPanel adminPanel =
+        new AdminPanel();
+
+        adminPanel.show(stage);
         } 
         else {
 
