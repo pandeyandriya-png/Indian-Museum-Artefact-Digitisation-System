@@ -61,4 +61,74 @@ public class ArtefactDAO {
             return false;
         }
     }
+    public static boolean deleteArtefact(int artefactId) {
+
+    String sql =
+            "DELETE FROM Artefact WHERE artefact_id = ?";
+
+    try (
+
+            Connection conn =
+                    DBConnection.getConnection();
+
+            PreparedStatement pstmt =
+                    conn.prepareStatement(sql)
+
+    ) {
+
+        pstmt.setInt(1, artefactId);
+
+        return pstmt.executeUpdate() > 0;
+
+    }
+
+    catch (SQLException e) {
+
+        e.printStackTrace();
+        return false;
+    }
+}
+public static boolean updateArtefact(
+
+        int id,
+        String name,
+        String type,
+        String material,
+        String description
+
+) {
+
+    String sql =
+
+            "UPDATE Artefact " +
+            "SET name=?, type=?, material=?, description=? " +
+            "WHERE artefact_id=?";
+
+    try (
+
+            Connection conn =
+                    DBConnection.getConnection();
+
+            PreparedStatement pstmt =
+                    conn.prepareStatement(sql)
+
+    ) {
+
+        pstmt.setString(1, name);
+        pstmt.setString(2, type);
+        pstmt.setString(3, material);
+        pstmt.setString(4, description);
+
+        pstmt.setInt(5, id);
+
+        return pstmt.executeUpdate() > 0;
+
+    }
+
+    catch (SQLException e) {
+
+        e.printStackTrace();
+        return false;
+    }
+}
 }

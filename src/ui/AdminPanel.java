@@ -36,6 +36,14 @@ public void show(Stage stage) {
 
     Button viewBtn =
             new Button("View Artefacts");
+            viewBtn.setOnAction(e -> {
+
+    ViewArtefactsPage page =
+            new ViewArtefactsPage();
+
+    page.show(stage);
+
+});
 
     addBtn.setPrefWidth(250);
     updateBtn.setPrefWidth(250);
