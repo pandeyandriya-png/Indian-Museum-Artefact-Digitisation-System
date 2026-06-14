@@ -24,18 +24,19 @@ Label subtitle = new Label(
 subtitle.setStyle(
 
     "-fx-text-fill: #F8F9F9;" +
-    "-fx-font-size: 18px;" +
-    "-fx-font-style: italic;"
+    "-fx-font-size: 20px;" +
+    "-fx-font-style: italic;"+
+    "-fx-effect: dropshadow(gaussian, black, 8, 0.6, 2, 2);"
 
 );
 
 title.setStyle(
 
-    "-fx-font-size: 34px;" +
+    "-fx-font-size: 36px;" +
     "-fx-font-weight: bold;" +
     "-fx-text-fill: white;" +
 
-    "-fx-effect: dropshadow(gaussian, black, 10, 0.6, 2, 2);"
+    "-fx-effect: dropshadow(gaussian, black, 12, 0.8, 3, 3);"
 
 );
 
@@ -68,9 +69,10 @@ title.setStyle(
 
         VBox root = new VBox(25);
         root.setStyle(
-    "-fx-background-color: linear-gradient(to bottom, #f5f7fa, #dfe9f3);"+"-fx-background-image: url('file:resources/images/museum_bg.png');" +
-    "-fx-background-size: cover;" +
-    "-fx-background-position: center;"
+    "-fx-background-color: linear-gradient(to bottom, #f5f7fa, #dfe9f3);"
+    +"-fx-background-image: url('file:resources/images/museum_bg.png');" +
+    "-fx-background-position: center;"+
+    "-fx-background-size: cover;" 
 );
         root.setSpacing(25);
         root.setAlignment(Pos.CENTER);
@@ -95,11 +97,11 @@ title.setStyle(
 
     btn.setStyle(
 
-            "-fx-background-color: #2E86DE;" +
+            "-fx-background-color: #3B82D6;" +
             "-fx-text-fill: white;" +
             "-fx-font-size: 14px;" +
             "-fx-font-weight: bold;" +
-            "-fx-background-radius: 10px;"
+            "-fx-background-radius: 12;"
 
     );
 

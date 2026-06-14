@@ -62,6 +62,7 @@ passwordField.setMaxWidth(250);
     System.out.println("Username = " + username);
     System.out.println("Password = " + password);
 
+
     boolean valid =
         UserDAO.validateUser(username,password);
 

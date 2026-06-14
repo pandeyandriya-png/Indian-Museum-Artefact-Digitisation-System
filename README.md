@@ -1,1 +1,1 @@
-# Museum Artefact System JavaFX Project Skeleton
+# Museum Artefact System 

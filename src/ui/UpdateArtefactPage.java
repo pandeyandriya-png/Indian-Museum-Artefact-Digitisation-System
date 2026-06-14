@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class UpdateArtefactPage {
@@ -119,7 +120,7 @@ page.show(stage);
     GridPane root =
             new GridPane();
             root.setStyle(
-    "-fx-background-color: linear-gradient(to bottom, #f5f7fa, #dfe9f3);"
+    "-fx-background-color: linear-gradient(to bottom, #f5f7fa, #dfe9f3);"+"-fx-background-image: url('file:resources/images/lighter_bg.png');"
 );
 
     root.setAlignment(Pos.CENTER);
@@ -145,8 +146,16 @@ page.show(stage);
     root.add(new Label("Description"),0,4);
     root.add(descriptionArea,1,4);
 
-    root.add(saveBtn,1,5);
-    root.add(backBtn,1,6);
+HBox buttonBox = new HBox(15);
+buttonBox.setAlignment(Pos.CENTER_LEFT);
+
+buttonBox.getChildren().addAll(
+        saveBtn,
+        backBtn
+);
+saveBtn.setPrefSize(140, 45);
+backBtn.setPrefSize(140, 45);
+root.add(buttonBox,1,7);
     Scene scene =
             new Scene(root,700,500);
 

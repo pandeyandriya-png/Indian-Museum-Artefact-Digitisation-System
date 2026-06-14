@@ -2,6 +2,7 @@ package ui;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.geometry.HPos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -9,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import dao.ArtefactDAO;
 import javafx.scene.control.Alert;
@@ -20,13 +22,13 @@ public void show(Stage stage) {
 
     Label title =
             new Label("Add New Artefact");
-
-   title.setStyle(
+ title.setStyle(
 
     "-fx-font-size:30px;" +
     "-fx-font-weight:bold;" +
-    "-fx-text-fill:#1B2631;"
-
+ "-fx-text-fill:black;"
+// +//#1B2631;"
+//  "-fx-effect: dropshadow(gaussian, black, 10, 0.8, 2, 2);"
 );
 stage.setTitle(
     "Indian Museum Artefact Digitisation System"
@@ -141,8 +143,11 @@ panel.show(stage);
 
     GridPane root =
             new GridPane();
-            root.setStyle(
-    "-fx-background-color: linear-gradient(to bottom, #f5f7fa, #dfe9f3);"
+    root.setStyle(
+    "-fx-background-image: url('file:resources/images/lighter_bg.png');" +
+    "-fx-background-size: cover;"+
+    "-fx-background-color: rgba(255,255,255,0.35);" +
+    "-fx-background-insets: 0;"
 );
 
     root.setAlignment(Pos.CENTER);
@@ -155,72 +160,113 @@ panel.show(stage);
     );
 
     root.add(title,0,0,2,1);
+    GridPane.setHalignment(title, HPos.CENTER);
+    //trial
+    GridPane formCard =new GridPane();
+        root.add(formCard,0,1,2,1);  
+        formCard.setAlignment(Pos.CENTER);
+        formCard.setHgap(10);
+        formCard.setVgap(10);
 
-    root.add(new Label("Name"),0,1);
-    root.add(nameField,1,1);
+        formCard.setPadding(
+                new Insets(30)
+        ); 
+        formCard.setStyle(
+        "-fx-background-color: rgba(255,255,255,0.65);" +
+        "-fx-background-radius: 15;"
+        );  
 
-    root.add(new Label("Type"),0,2);
-    root.add(typeBox,1,2);
+        Label nameLabel = new Label("Name :");
+        Label typeLabel = new Label("Type :");
+        Label materialLabel = new Label("Material :");
+        Label dynastyLabel = new Label("Dynasty :");
+        Label regionLabel = new Label("Region :");
+        Label descriptionLabel = new Label("Description :");
+        String labelStyle =
+                "-fx-font-weight:bold;" +
+                "-fx-font-size:14px;" +
+                "-fx-text-fill:#1B2631;";
 
-    root.add(new Label("Material"),0,3);
-    root.add(materialField,1,3);
+        nameLabel.setStyle(labelStyle);
+        typeLabel.setStyle(labelStyle);
+        materialLabel.setStyle(labelStyle);
+        dynastyLabel.setStyle(labelStyle);
+        regionLabel.setStyle(labelStyle);
+        descriptionLabel.setStyle(labelStyle);
+//trial
+        nameField.setPrefWidth(300);
+        materialField.setPrefWidth(300);
+        descriptionArea.setPrefRowCount(5);
+//trial
+        formCard.add(nameLabel,0,1);
+        formCard.add(nameField,1,1);
 
-    root.add(new Label("Dynasty"),0,4);
-    root.add(dynastyBox,1,4);
+        formCard.add(typeLabel,0,2);
+        formCard.add(typeBox,1,2);
 
-    root.add(new Label("Region"),0,5);
-    root.add(regionBox,1,5);
+        formCard.add(materialLabel,0,3);
+        formCard.add(materialField,1,3);
 
-    root.add(new Label("Description"),0,6);
-    root.add(descriptionArea,1,6);
+        formCard.add(dynastyLabel,0,4);
+        formCard.add(dynastyBox,1,4);
 
-    root.add(saveBtn,1,7);
-    root.add(backBtn,1,8);
+        formCard.add(regionLabel,0,5);
+        formCard.add(regionBox,1,5);
 
-    Scene scene =
-            new Scene(root,800,600);
+        formCard.add(descriptionLabel,0,6);
+        formCard.add(descriptionArea,1,6);
 
-    stage.setScene(scene);
-    stage.show();
-}
-private int getDynastyId(String dynasty) {
+        HBox buttonBox = new HBox(15);
+        buttonBox.setAlignment(Pos.CENTER);
+        formCard.add(buttonBox,1,7);
+        buttonBox.getChildren().addAll(
+                saveBtn,
+                backBtn
+        );
+        Scene scene =
+                new Scene(root,800,600);
 
-    switch (dynasty) {
+        stage.setScene(scene);
+        stage.show();
+ }
+        private int getDynastyId(String dynasty) {
 
-        case "Maurya Dynasty": return 1;
-        case "Gupta Dynasty": return 2;
-        case "Chola Dynasty": return 3;
-        case "Kushan Dynasty": return 4;
+        switch (dynasty) {
 
-        default: return 1;
-    }
-}
+                case "Maurya Dynasty": return 1;
+                case "Gupta Dynasty": return 2;
+                case "Chola Dynasty": return 3;
+                case "Kushan Dynasty": return 4;
 
-private int getRegionId(String region) {
+                default: return 1;
+        }
+        }
 
-    switch (region) {
+        private int getRegionId(String region) {
 
-        case "Sarnath": return 1;
-        case "Mathura": return 2;
-        case "Uttar Pradesh": return 3;
-        case "Bihar": return 4;
+        switch (region) {
 
-        default: return 1;
-    }
-}
-    private void styleButton(Button btn) {
+                case "Sarnath": return 1;
+                case "Mathura": return 2;
+                case "Uttar Pradesh": return 3;
+                case "Bihar": return 4;
 
-    btn.setStyle(
+                default: return 1;
+        }
+        }
+        private void styleButton(Button btn) {
 
-            "-fx-background-color: #2E86DE;" +
-            "-fx-text-fill: white;" +
-            "-fx-font-size: 14px;" +
-            "-fx-font-weight: bold;" +
-            "-fx-background-radius: 10px;"
+        btn.setStyle(
 
-    );
+                "-fx-background-color: #2E86DE;" +
+                "-fx-text-fill: white;" +
+                "-fx-font-size: 14px;" +
+                "-fx-font-weight: bold;" +
+                "-fx-background-radius: 10px;"
 
-    btn.setPrefHeight(40);
-}
+        );
+
+        btn.setPrefHeight(40);
+        }
 }
 

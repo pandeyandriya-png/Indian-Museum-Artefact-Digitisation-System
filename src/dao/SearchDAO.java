@@ -197,7 +197,7 @@ public static ObservableList<Artefact> searchArtefacts(
     if (!dynasty.equals("All")) {
         sql.append(" AND d.name = ?");
     }
-
+    
     if (!region.equals("All")) {
         sql.append(" AND r.name = ?");
     }
@@ -208,6 +208,7 @@ public static ObservableList<Artefact> searchArtefacts(
 
     if (!material.equals("All")) {
         sql.append(" AND a.material = ?");
+    
     }
 
     try (
