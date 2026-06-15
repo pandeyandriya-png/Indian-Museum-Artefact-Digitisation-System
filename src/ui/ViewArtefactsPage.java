@@ -5,6 +5,7 @@ import model.Artefact;
 
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -28,12 +29,15 @@ public void show(Stage stage) {
 
     "-fx-font-size:30px;" +
     "-fx-font-weight:bold;" +
-    "-fx-text-fill:#1B2631;"
-
+    "-fx-text-fill:black;"
 );
 
     TableView<Artefact> table =
             new TableView<>();
+ table.setStyle(
+    "-fx-background-color: rgba(255,255,255,0.65);" +
+    "-fx-control-inner-background: rgba(255,255,255,0.65);"
+);
             table.setColumnResizePolicy(
      TableView.CONSTRAINED_RESIZE_POLICY
 );
@@ -93,7 +97,7 @@ public void show(Stage stage) {
             SearchDAO.getAllArtefacts();
 
     table.setItems(artefacts);
-
+    table.setOpacity(0.80);
     Button updateBtn =
             new Button("Update Selected");
             styleButton(updateBtn);
@@ -194,6 +198,10 @@ public void show(Stage stage) {
     Button backBtn =
             new Button("Back");
             styleButton(backBtn);
+            updateBtn.setPrefWidth(140);
+            updateBtn.setPrefSize(150, 38);
+            deleteBtn.setPrefSize(150, 38);
+            backBtn.setPrefSize(90, 38);
 
     backBtn.setOnAction(e -> {
 
@@ -204,30 +212,38 @@ public void show(Stage stage) {
 
     });
 
-    HBox buttonBox =
-            new HBox(10);
-
+    HBox buttonBox =new HBox(15);
+    buttonBox.setAlignment(Pos.CENTER);
     buttonBox.getChildren().addAll(
-            updateBtn,
-            deleteBtn,
-            backBtn
+        updateBtn,
+        deleteBtn,
+        backBtn
     );
 
-    BorderPane root =
-            new BorderPane();
-            root.setStyle(
-    "-fx-background-color: linear-gradient(to bottom, #f5f7fa, #dfe9f3);"
+    BorderPane root =new BorderPane();
+    root.setStyle(
+    "-fx-background-image: url('file:resources/dashboard_bg.png');" +
+    "-fx-background-size: cover;"
 );
-
     root.setPadding(
-            new Insets(20)
+         new Insets(20)
     );
 
-    root.setTop(title);
+   root.setTop(title);
+   BorderPane.setAlignment(title, Pos.CENTER);
+   BorderPane tableWrapper = new BorderPane(table);
+   tableWrapper.setStyle(
+    "-fx-background-color: rgba(255,255,255,0.25);" +
+    "-fx-background-radius: 15;"
+);
+   root.setCenter(tableWrapper);
+   
+   root.setBottom(buttonBox);
 
-    root.setCenter(table);
-
-    root.setBottom(buttonBox);
+   BorderPane.setMargin(
+        buttonBox,
+        new Insets(15,0,0,0)
+);
 
     Scene scene =
             new Scene(root,1100,700);
@@ -235,19 +251,25 @@ public void show(Stage stage) {
     stage.setScene(scene);
     stage.show();
 }
-private void styleButton(Button btn) {
+
+
+  private void styleButton(Button btn) {
 
     btn.setStyle(
 
-            "-fx-background-color: #2E86DE;" +
-            "-fx-text-fill: white;" +
-            "-fx-font-size: 14px;" +
-            "-fx-font-weight: bold;" +
-            "-fx-background-radius: 10px;"
+        "-fx-background-color: #2E86DE;" +
+        "-fx-text-fill: white;" +
+        "-fx-font-size: 13px;" +
+        "-fx-font-weight: bold;" +
+        "-fx-background-radius: 10;" +
+        "-fx-cursor: hand;"
 
     );
 
+
+
     btn.setPrefHeight(40);
+    
 }
 
 }

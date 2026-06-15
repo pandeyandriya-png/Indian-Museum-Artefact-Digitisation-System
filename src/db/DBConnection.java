@@ -13,7 +13,7 @@ public class DBConnection {
             "root";
 
     private static final String PASSWORD =
-            "Root@123";
+            "root@123";
 
     public static Connection getConnection()
             throws SQLException {
