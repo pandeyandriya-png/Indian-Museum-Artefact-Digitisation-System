@@ -85,7 +85,7 @@ backBtn.setOnAction(e -> {
     AdminPanel panel =
             new AdminPanel();
 
-    panel.show(stage);
+    panel.start(stage);
 
 });
     saveBtn.setOnAction(e -> {
@@ -138,7 +138,7 @@ backBtn.setOnAction(e -> {
     AdminPanel panel =
         new AdminPanel();
 
-panel.show(stage);
+panel.start(stage);
 });
 
     GridPane root =

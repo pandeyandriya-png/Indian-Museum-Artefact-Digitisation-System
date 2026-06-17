@@ -78,7 +78,7 @@ passwordField.setMaxWidth(250);
         AdminPanel adminPanel =
         new AdminPanel();
 
-        adminPanel.show(stage);
+        adminPanel.start(stage);
         } 
         else {
 

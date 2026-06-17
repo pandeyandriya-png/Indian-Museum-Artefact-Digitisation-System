@@ -208,7 +208,7 @@ public void show(Stage stage) {
         AdminPanel panel =
                 new AdminPanel();
 
-        panel.show(stage);
+        panel.start(stage);
 
     });
 

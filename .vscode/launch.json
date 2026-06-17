@@ -3,10 +3,29 @@
     "configurations": [
         {
             "type": "java",
+            "name": "AdminPanel",
+            "request": "launch",
+            "mainClass": "ui.AdminPanel",
+            "projectName": "Indian-Museum-Artefact-Digitisation-System_5ee237c0"
+        },
+        {
+            "type": "java",
             "name": "Launch Main",
             "request": "launch",
             "mainClass": "app.Main",
-            "vmArgs": "--module-path \"C:/javafx-sdk-26.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
+            "vmArgs": "--module-path \"C:/javafx-sdk-21/lib\" --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }
+// {
+//     "version": "0.2.0",
+//     "configurations": [
+//         {
+//             "type": "java",
+//             "name": "Run Specific JavaFX File",
+//             "request": "launch",
+//             "mainClass": "${fileClass}",
+//             "vmArgs": "--module-path \"C:/javafx-sdk-21/lib\" --add-modules javafx.controls,javafx.fxml"
+//         }
+//     ]
+// }

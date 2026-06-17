@@ -2,10 +2,26 @@
     "java.project.referencedLibraries": {
         "include": [
             "lib/**/*.jar",
-            "c:\\Users\\91737\\Downloads\\mysql-connector-j-9.6.0\\mysql-connector-j-9.6.0\\mysql-connector-j-9.6.0.jar"
+            "c:\\Users\\91737\\Downloads\\mysql-connector-j-9.6.0\\mysql-connector-j-9.6.0\\mysql-connector-j-9.6.0.jar",
+            "c:\\javafx-sdk-21\\lib\\javafx.base.jar",
+            "c:\\javafx-sdk-21\\lib\\javafx.controls.jar",
+            "c:\\javafx-sdk-21\\lib\\javafx.fxml.jar",
+            "c:\\javafx-sdk-21\\lib\\javafx.graphics.jar",
+            "c:\\javafx-sdk-21\\lib\\javafx.media.jar",
+            "c:\\javafx-sdk-21\\lib\\javafx.swing.jar",
+            "c:\\javafx-sdk-21\\lib\\javafx.web.jar",
+            "c:\\javafx-sdk-21\\lib\\javafx-swt.jar"
         ],
         "exclude": [
-            "lib/mysql-connector-j.jar"
+            "lib/mysql-connector-j.jar",
+            "lib/javafx-swt.jar",
+            "lib/javafx.base.jar",
+            "lib/javafx.controls.jar",
+            "lib/javafx.media.jar",
+            "lib/javafx.web.jar",
+            "lib/javafx.swing.jar",
+            "lib/javafx.fxml.jar",
+            "lib/javafx.graphics.jar"
         ]
     }
 }
