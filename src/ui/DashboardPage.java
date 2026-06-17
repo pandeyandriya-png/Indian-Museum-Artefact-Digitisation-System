@@ -135,7 +135,7 @@ searchBtn.setStyle(
 searchBtn.setPrefSize(100,40);
 backBtn.setStyle(
 
-        "-fx-background-color: #6B4226;" +
+        "-fx-background-color: #2E86DE;" +
         "-fx-text-fill: white;" +
         "-fx-font-weight: bold;" +
         "-fx-background-radius: 10;"
